@@ -2,12 +2,13 @@
 #include <string.h>
 #include <stdio.h>
 
-int IPTransformer::IPCheck (char* in, int strLength) {
+int IPTransformer::IPCheck (char* in) {
   int check = 1, dotcount = 0;
-  for (i = 0; i < strLength; ++ i) {
+  while (in[i] != '\0') {
     if (in[i] == '.') {
       ++ dotcount;
     }
+    ++ i;
   }
   if (dotcount != 3) {
     check = 0;
@@ -19,9 +20,9 @@ int IPTransformer::IPRangeCheck (int i) {
   return i < 256 && i > -1;
 }
 
-void IPTransformer::IPStrToInt (int* out, char* in, int strLength) {
-  int tmp = 0, count = 0;
-  for(i = 0; i < strLength; ++ i) {
+void IPTransformer::IPStrToInt (int* out, char* in) {
+  int tmp = 0, count = 0, i = 0;
+  while (in[i] != '\0') {
     if (in[i] != '.') {
       tmp *= 10;
       tmp += in[i] - 48;
@@ -30,6 +31,7 @@ void IPTransformer::IPStrToInt (int* out, char* in, int strLength) {
       tmp = 0;
       ++ count;
     }
+    ++ i;
   }
   out[count] = tmp;
 }
