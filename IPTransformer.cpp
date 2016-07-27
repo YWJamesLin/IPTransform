@@ -3,25 +3,25 @@
 #include <stdio.h>
 
 int IPTransformer::IPCheck (char* in) {
-  int check = 1, dotcount = 0;
+  i = 0, check = 1, count = 0;
   while (in[i] != '\0') {
     if (in[i] == '.') {
-      ++ dotcount;
+      ++ count;
     }
     ++ i;
   }
-  if (dotcount != 3) {
+  if (count != 3) {
     check = 0;
   }
   return check;
 }
 
-int IPTransformer::IPRangeCheck (int i) {
-  return i < 256 && i > -1;
+int IPTransformer::IPRangeCheck (int in) {
+  return in < 256 && in > -1;
 }
 
 void IPTransformer::IPStrToInt (int* out, char* in) {
-  int tmp = 0, count = 0, i = 0;
+  i = 0, count = 0, tmp = 0;
   while (in[i] != '\0') {
     if (in[i] != '.') {
       tmp *= 10;

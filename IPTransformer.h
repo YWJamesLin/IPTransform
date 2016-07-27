@@ -7,21 +7,21 @@ class IPTransformer {
     /*
      * IPCheck
      * Check if this is a valid IPv4 Address
-     * Input : char array with length
-     * Return : If is valid, then true, if not, false
+     * Input : char array, which ending character must be '\0'
+     * Return : If is valid, then true (or 1), if not, false (or 0)
      */
     int IPCheck (char*);
     /*
      * IPRangeCheck
      * Check if this integer is in a valid IPv4 8-bit range
-     * Input : int
-     * Return : If is valid, then true, if not, false
+     * Input : integer
+     * Return : If is valid, then true (or 1), if not, false (or 0)
      */
     int IPRangeCheck (int);
     /*
      * IPStrToInt
-     * Transform IPv4 String to 4 Integer
-     * Input : integer array begin addr. to store data (there should be 4 integer spaces), IP Address char array, and length
+     * Transform IPv4 String to 4 Integers
+     * Input : integer array begin addr. to store data (there should be 4 integer spaces), IP Address char array, which ending character must be '\0'
      * Return : no, but IP Address Integers are stored in the integer array
      */
     void IPStrToInt (int*, char*);
@@ -33,6 +33,6 @@ class IPTransformer {
      */
     void IPIntToStr (char*, int*);
   private :
-    int i;
+    int i, count, check, tmp;
 };
 #endif
